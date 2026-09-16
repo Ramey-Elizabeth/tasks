@@ -60,7 +60,8 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
     const Uppercase = messages.map((message: string): string =>
         message.endsWith("!") ? message.toUpperCase() : message,
     );
-    const Questions = (Uppercase: string): boolean => Uppercase.endsWith("?");
+    const Questions = (Uppercase: string): boolean =>
+        Uppercase.endsWith("?") ? false : true;
     const noQuestions = Uppercase.filter(Questions);
     return noQuestions;
 };
@@ -117,12 +118,29 @@ export function injectPositive(values: number[]): number[] {
     const firstNegativeIndex = values.findIndex(
         (num: number): boolean => num < 0,
     );
-    const positiveValues = values.slice(0, firstNegativeIndex);
-    const sum = positiveValues.reduce(
-        (currentTotal: number, num: number): number => currentTotal + num,
-        0,
-    );
-    const remainingValues = values.slice(firstNegativeIndex);
-    const modifiedValues = [...positiveValues, sum, ...remainingValues];
-    return modifiedValues;
+    if (firstNegativeIndex !== -1) {
+        const positiveValues = values.slice(0, firstNegativeIndex);
+        const sum = positiveValues.reduce(
+            (currentTotal: number, num: number): number => currentTotal + num,
+            0,
+        );
+        const remainingValues = values.slice(
+            firstNegativeIndex + 1,
+            values.length,
+        );
+        const modifiedValues = [
+            ...positiveValues,
+            values[firstNegativeIndex],
+            sum,
+            ...remainingValues,
+        ];
+        return modifiedValues;
+    } else {
+        const sum = values.reduce(
+            (currentTotal: number, num: number): number => currentTotal + num,
+            0,
+        );
+        const modifiedValues = [...values, sum];
+        return modifiedValues;
+    }
 }

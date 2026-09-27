@@ -18,14 +18,14 @@ function App(): React.JSX.Element {
                 Elizabeth Ramey UD CISC275 with React Hooks and TypeScript
             </header>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
+            <DoubleHalf></DoubleHalf>
+            <hr />
             <ChooseTeam></ChooseTeam>
-            <hr></hr>
+            <hr />
             <ColoredBox></ColoredBox>
-            <hr></hr>
+            <hr />
             <ShoveBox></ShoveBox>
-            <hr></hr>
+            <hr />
             <Counter></Counter>
             <hr />
             <RevealAnswer></RevealAnswer>

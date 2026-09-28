@@ -36,8 +36,8 @@ function App(): React.JSX.Element {
                 expectedAnswer="b"
             ></MultipleChoiceQuestion>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
-            <hr></hr>
+            <DoubleHalf></DoubleHalf>
+            <hr />
             <ChooseTeam></ChooseTeam>
             <hr />
             <ColoredBox></ColoredBox>
